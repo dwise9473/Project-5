@@ -128,6 +128,45 @@ public class LinkedList<E> {
 
 
     /**
+     * Removes the object at the given position
+     *
+     * @param index
+     *            the position of the object
+     * @return true if the removal was successful
+     * @throws IndexOutOfBoundsException
+     *             if there is not an element at the index
+     */
+    public boolean remove(int index) {
+        // if the index is invalid
+        if (index < 0 || head == null) {
+            throw new IndexOutOfBoundsException("Index is out of bounds");
+        }
+        else {
+            Node<E> current = head;
+            int currentIndex = 0;
+
+            while (current.next != null) {
+                if ((currentIndex + 1) == index) {
+                    Node<E> newNext = current.next.next;
+                    current.setNext(newNext);
+                    size--;
+                    return true;
+                }
+                current = current.next;
+                currentIndex++;
+            }
+            if(current.next == null && current != null) {
+                size--;
+                return true;
+            }
+                // if the element was never found, this also handles empty case
+                //throw new IndexOutOfBoundsException("Index is out of bounds");
+            return false;
+        }
+    }
+
+
+    /**
      * Gets the object at the given position
      *
      * @param index

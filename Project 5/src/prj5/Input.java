@@ -12,10 +12,10 @@ import java.io.FileNotFoundException;
 public class Input {
     public static void main(String[] args) throws FileNotFoundException {
         if(args.length > 0) {
-            new Parse(args[0]);
+            new Parse<Object>(args[0]);
         }
         else {
-            new Parse("SampleInput1_2022.csv");
+            new Parse<Object>("SampleInput1_2022.csv");
         }
     }
 }
