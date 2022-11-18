@@ -125,4 +125,35 @@ public class LinkedList<E> {
     public boolean isEmpty() {
         return (size == 0);
     }
+
+
+    /**
+     * Gets the object at the given position
+     *
+     * @param index
+     *            where the object is located
+     * @return The object at the given position
+     * @throws IndexOutOfBoundsException
+     *             if no node at the given index
+     */
+    public E get(int index) {
+        Node<E> current = head;
+        int currentIndex = 0;
+        E data = null;
+        while (current != null) {
+            if (currentIndex == index) {
+                data = current.data;
+            }
+            currentIndex++;
+            current = current.next;
+        }
+
+        // check if the data was null...
+        if (data == null) {
+            // ... if so throw an exception
+            throw new IndexOutOfBoundsException("Index exceeds the size.");
+        }
+        return data;
+    }
+
 }

@@ -32,7 +32,7 @@ public class Influencer {
         int views) {
         this.month = month;
         this.influencerUsername = username;
-        this.channelName = channelName;
+        this.channelName = channelName.toLowerCase();
         this.country = country;
         this.mainTopic = mainTopic;
         this.likes = likes;
@@ -41,5 +41,74 @@ public class Influencer {
         this.comments = comments;
         this.views = views;
     }
+
     // getter methods
+
+
+    public String getMonth() {
+        return this.month;
+    }
+
+
+    public String getUsername() {
+        return this.influencerUsername;
+    }
+
+
+    public String getChannelName() {
+        return this.channelName;
+    }
+
+
+    public String getCountry() {
+        return this.country;
+    }
+
+
+    public String getMainTopic() {
+        return this.mainTopic;
+    }
+
+
+    public int getLikes() {
+        return this.likes;
+    }
+
+
+    public int getPosts() {
+        return this.post;
+    }
+
+
+    public int getFollowers() {
+        return this.followers;
+    }
+
+
+    public int getComments() {
+        return this.comments;
+    }
+
+
+    public int getViews() {
+        return this.views;
+    }
+
+
+    public int getTotalEngagement() {
+        // sum of all interactions (comments and likes)
+        return comments + likes;
+    }
+
+
+    public int traditionalEngagement() {
+        return (getTotalEngagement() / getFollowers()) * 100;
+
+    }
+
+
+    public int reachEngagement() {
+        return (getTotalEngagement() / getViews()) * 100;
+
+    }
 }
